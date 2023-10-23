@@ -11,6 +11,14 @@ async function bootstrap() {
       transform: true,
     }),
   );
+  // Configurar CORS para permitir solicitações do seu frontend (http://127.0.0.1:5500)
+  app.enableCors({
+    // origin: '*',
+    origin: 'http://127.0.0.1:5500', //Go Live
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true, // Se você precisar de cookies ou autenticação
+  });
+
   await app.listen(3000);
 }
 bootstrap();
