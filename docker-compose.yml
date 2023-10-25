@@ -12,3 +12,14 @@ services:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_DB=devtraining
       - POSTGRES_USER=postgres
+
+  dbtest:
+    build: .
+    container_name: test_db
+    restart: always
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=devtraining
+      - POSTGRES_USER=postgres
